@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aura AI — مولّد أوصاف المنتجات الاحترافية بالذكاء الاصطناعي" />
+  <title>Aura AI — مولّد أوصاف المنتجات</title>
+  <link rel="stylesheet" href="tool.css" />
+</head>
+<body>
+  <!-- ===== Header ===== -->
+  <header class="t-header">
+    <div class="t-container t-header-inner">
+      <a href="index.html" class="t-logo"><span class="t-mark">◈</span> Aura <span class="t-ai">AI</span></a>
+      <a href="index.html" class="t-link">الصفحة الرئيسية ←</a>
+    </div>
+  </header>
+
+  <main class="t-container">
+    <!-- ===== Hero ===== -->
+    <section class="t-hero">
+      <p class="t-eyebrow">مدعوم بالذكاء الاصطناعي</p>
+      <h1>مولّد أوصاف المنتجات</h1>
+      <p class="t-lead">
+        اكتب اسم منتجك ومميزاته، وخلّي Aura تكتبلك وصف احترافي + عنوان SEO +
+        بوست سوشال ميديا — بثواني.
+      </p>
+    </section>
+
+    <!-- ===== App ===== -->
+    <section class="t-app">
+      <!-- Form -->
+      <form class="t-form" id="genForm">
+        <div class="t-field">
+          <label for="name">اسم المنتج <span class="req">*</span></label>
+          <input type="text" id="name" placeholder="مثال: ساعة يد ذكية" required />
+        </div>
+
+        <div class="t-field">
+          <label for="category">الفئة</label>
+          <input type="text" id="category" placeholder="مثال: إلكترونيات، أزياء، تجميل…" />
+        </div>
+
+        <div class="t-field">
+          <label for="features">المميزات الرئيسية <span class="req">*</span></label>
+          <textarea id="features" rows="3" placeholder="افصل كل ميزة بفاصلة، مثال: شاشة AMOLED، بطارية 7 أيام، مقاومة للماء" required></textarea>
+          <small>افصل بين كل ميزة وميزة بفاصلة (،)</small>
+        </div>
+
+        <div class="t-row">
+          <div class="t-field">
+            <label for="audience">الجمهور المستهدف</label>
+            <input type="text" id="audience" placeholder="مثال: الرياضيين، الشباب…" />
+          </div>
+          <div class="t-field">
+            <label for="tone">نبرة الكتابة</label>
+            <select id="tone">
+              <option value="professional">احترافية</option>
+              <option value="friendly">ودّية</option>
+              <option value="luxury">فخمة / راقية</option>
+              <option value="energetic">حماسية</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="t-btn">✨ توليد الوصف</button>
+      </form>
+
+      <!-- Results -->
+      <div class="t-results" id="results" hidden>
+        <div class="t-result-card">
+          <div class="t-result-head">
+            <h3>📝 وصف المنتج</h3>
+            <button class="t-copy" data-target="outDesc">نسخ</button>
+          </div>
+          <p id="outDesc" class="t-out"></p>
+        </div>
+
+        <div class="t-result-card">
+          <div class="t-result-head">
+            <h3>🔎 عنوان SEO</h3>
+            <button class="t-copy" data-target="outTitle">نسخ</button>
+          </div>
+          <p id="outTitle" class="t-out"></p>
+        </div>
+
+        <div class="t-result-card">
+          <div class="t-result-head">
+            <h3>🏷️ وصف ميتا (Meta)</h3>
+            <button class="t-copy" data-target="outMeta">نسخ</button>
+          </div>
+          <p id="outMeta" class="t-out"></p>
+        </div>
+
+        <div class="t-result-card">
+          <div class="t-result-head">
+            <h3>📣 بوست سوشال ميديا</h3>
+            <button class="t-copy" data-target="outSocial">نسخ</button>
+          </div>
+          <p id="outSocial" class="t-out"></p>
+        </div>
+
+        <button class="t-btn t-btn-ghost" id="regen">🔄 توليد صياغة جديدة</button>
+      </div>
+    </section>
+
+    <p class="t-note">
+      💡 هالنسخة تشتغل محلياً بدون أي تكلفة. لتفعيل ذكاء اصطناعي حقيقي (Claude)،
+      شوف ملف <code>server-example/README.md</code>.
+    </p>
+  </main>
+
+  <footer class="t-footer">
+    <div class="t-container">© 2026 Aura AI — صُنع بحب 💚</div>
+  </footer>
+
+  <script src="tool.js"></script>
+</body>
+</html>

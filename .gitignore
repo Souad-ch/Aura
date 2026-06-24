@@ -1,0 +1,10 @@
+# أسرار البيئة — لا ترفعها أبداً
+.env
+**/.env
+
+# Node
+node_modules/
+npm-debug.log*
+
+# نظام التشغيل
+.DS_Store
