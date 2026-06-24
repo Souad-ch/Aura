@@ -1,10 +1,10 @@
 :root {
-  --green: #008060;
-  --green-dark: #004c3f;
+  --green: #2563eb;
+  --green-dark: #1e40af;
   --ink: #1a1a1a;
   --ink-soft: #4b5563;
   --bg: #ffffff;
-  --bg-soft: #f6f6f7;
+  --bg-soft: #f5f8ff;
   --border: #e3e3e3;
   --radius: 14px;
   --shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
@@ -31,7 +31,8 @@ a { color: inherit; text-decoration: none; }
   border-bottom: 1px solid var(--border);
 }
 .t-header-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-.t-logo { font-size: 22px; font-weight: 800; display: flex; align-items: center; gap: 6px; }
+.t-logo { font-size: 22px; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+.t-logo-img { width: 28px; height: 28px; border-radius: 7px; }
 .t-mark { color: var(--green); }
 .t-ai { background: var(--green); color: #fff; font-size: 13px; padding: 2px 8px; border-radius: 6px; }
 .t-link { color: var(--ink-soft); font-weight: 600; font-size: 15px; }
@@ -58,7 +59,7 @@ a { color: inherit; text-decoration: none; }
   background: #fff; color: var(--ink); transition: border-color .2s, box-shadow .2s;
 }
 .t-field input:focus, .t-field textarea:focus, .t-field select:focus {
-  border-color: var(--green); box-shadow: 0 0 0 3px rgba(0, 128, 96, 0.15);
+  border-color: var(--green); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 .t-field textarea { resize: vertical; }
 .t-field small { display: block; margin-top: 6px; color: var(--ink-soft); font-size: 13px; }

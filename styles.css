@@ -1,12 +1,12 @@
 /* ===== Design tokens ===== */
 :root {
-  --green: #008060;
-  --green-dark: #004c3f;
+  --green: #2563eb;
+  --green-dark: #1e40af;
   --ink: #1a1a1a;
   --ink-soft: #4b5563;
   --bg: #ffffff;
-  --bg-soft: #f6f6f7;
-  --bg-dark: #0b1b14;
+  --bg-soft: #f5f8ff;
+  --bg-dark: #0b1b3b;
   --border: #e3e3e3;
   --radius: 14px;
   --shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
@@ -60,7 +60,8 @@ a { color: inherit; text-decoration: none; }
 }
 .site-header.scrolled { border-color: var(--border); box-shadow: 0 1px 12px rgba(0,0,0,.05); }
 .header-inner { display: flex; align-items: center; gap: 28px; height: 68px; }
-.logo { font-size: 22px; font-weight: 800; letter-spacing: -.5px; display: flex; align-items: center; gap: 6px; }
+.logo { font-size: 22px; font-weight: 800; letter-spacing: -.5px; display: flex; align-items: center; gap: 8px; }
+.logo-img { width: 30px; height: 30px; border-radius: 8px; }
 .logo-mark { color: var(--green); }
 .logo-light { color: #fff; }
 .nav-desktop { display: flex; gap: 26px; margin-left: 8px; }
@@ -82,10 +83,10 @@ a { color: inherit; text-decoration: none; }
 .nav-mobile.open { display: flex; }
 
 /* ===== Hero ===== */
-.hero { padding: 80px 0 90px; background: linear-gradient(180deg, #eafaf3 0%, #ffffff 70%); overflow: hidden; }
+.hero { padding: 80px 0 90px; background: linear-gradient(180deg, #e8f0ff 0%, #ffffff 70%); overflow: hidden; }
 .hero-inner { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
 .eyebrow { color: var(--green); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
-.eyebrow.dark { color: #7fe7c4; }
+.eyebrow.dark { color: #93c5fd; }
 .hero h1 { font-size: clamp(40px, 6vw, 68px); line-height: 1.05; letter-spacing: -2px; font-weight: 800; margin-bottom: 20px; }
 .lead { font-size: 20px; color: var(--ink-soft); max-width: 520px; margin-bottom: 30px; }
 .hero-form { display: flex; gap: 10px; max-width: 480px; }
@@ -93,13 +94,13 @@ a { color: inherit; text-decoration: none; }
   flex: 1; padding: 14px 18px; border: 1.5px solid var(--border);
   border-radius: 999px; font-size: 15px; font-family: var(--font); outline: none;
 }
-.hero-form input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(0,128,96,.15); }
+.hero-form input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(37,99,235,.15); }
 .microcopy { margin-top: 14px; font-size: 14px; color: var(--ink-soft); }
 
 .hero-art { position: relative; height: 360px; }
 .hero-blob {
   position: absolute; inset: 0; margin: auto; width: 320px; height: 320px;
-  background: radial-gradient(circle at 30% 30%, #00b386, var(--green-dark));
+  background: radial-gradient(circle at 30% 30%, #60a5fa, var(--green-dark));
   border-radius: 42% 58% 56% 44% / 48% 42% 58% 52%;
   filter: blur(2px); animation: morph 12s ease-in-out infinite;
 }
@@ -144,7 +145,7 @@ a { color: inherit; text-decoration: none; }
 .showcase-copy p { color: #b8c5bf; font-size: 18px; margin-bottom: 24px; }
 .check-list { list-style: none; margin-bottom: 30px; }
 .check-list li { padding: 8px 32px 8px 0; position: relative; color: #e6efeb; }
-.check-list li::before { content: "✓"; position: absolute; inset-inline-start: 0; color: #7fe7c4; font-weight: 800; }
+.check-list li::before { content: "✓"; position: absolute; inset-inline-start: 0; color: #93c5fd; font-weight: 800; }
 .showcase .btn-outline { color: #fff; border-color: #fff; }
 .showcase .btn-outline:hover { background: #fff; color: var(--ink); }
 .showcase-art { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -160,7 +161,7 @@ a { color: inherit; text-decoration: none; }
 .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
 .plan-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 34px 28px; position: relative; transition: transform .2s ease, box-shadow .2s ease; }
 .plan-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-.plan-card.featured { border-color: var(--green); box-shadow: 0 16px 50px rgba(0,128,96,.15); }
+.plan-card.featured { border-color: var(--green); box-shadow: 0 16px 50px rgba(37,99,235,.18); }
 .plan-badge { position: absolute; top: -13px; inset-inline-start: 28px; background: var(--green); color: #fff; font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 999px; letter-spacing: .5px; }
 .plan-card h3 { font-size: 20px; margin-bottom: 10px; }
 .plan-price { font-size: 44px; font-weight: 800; letter-spacing: -1.5px; }
