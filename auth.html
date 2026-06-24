@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aura — تسجيل الدخول / إنشاء حساب</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <a href="index.html" class="auth-logo"><img src="logo.svg" alt="" /> Aura</a>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">تسجيل الدخول</button>
+        <button class="auth-tab" data-tab="signup">حساب جديد</button>
+      </div>
+
+      <!-- تسجيل دخول -->
+      <form class="auth-form" id="loginForm">
+        <div class="auth-field">
+          <label for="lEmail">البريد الإلكتروني</label>
+          <input type="email" id="lEmail" placeholder="you@email.com" required />
+        </div>
+        <div class="auth-field">
+          <label for="lPass">كلمة المرور</label>
+          <input type="password" id="lPass" placeholder="••••••••" required />
+        </div>
+        <button type="submit" class="auth-btn">دخول إلى لوحة التحكّم</button>
+        <p class="auth-err" id="lErr"></p>
+      </form>
+
+      <!-- حساب جديد -->
+      <form class="auth-form" id="signupForm" hidden>
+        <div class="auth-field">
+          <label for="sName">اسمك / اسم متجرك</label>
+          <input type="text" id="sName" placeholder="مثال: متجر سعاد" required />
+        </div>
+        <div class="auth-field">
+          <label for="sEmail">البريد الإلكتروني</label>
+          <input type="email" id="sEmail" placeholder="you@email.com" required />
+        </div>
+        <div class="auth-field">
+          <label for="sPass">كلمة المرور</label>
+          <input type="password" id="sPass" placeholder="4 أحرف على الأقل" required />
+        </div>
+        <button type="submit" class="auth-btn">أنشئ متجرك المجاني 🚀</button>
+        <p class="auth-err" id="sErr"></p>
+      </form>
+
+      <a href="index.html" class="auth-back">← العودة للرئيسية</a>
+    </div>
+    <p class="auth-note">🔒 نموذج تجريبي — البيانات تُحفظ في متصفحك فقط.</p>
+  </div>
+
+  <script src="store.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

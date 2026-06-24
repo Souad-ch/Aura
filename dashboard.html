@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aura — لوحة التحكّم</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="d-sidebar" id="sidebar">
+    <a href="index.html" class="d-logo"><img src="logo.svg" alt="" /> Aura</a>
+    <nav class="d-nav">
+      <button class="d-navlink active" data-view="overview">📊 نظرة عامة</button>
+      <button class="d-navlink" data-view="products">📦 المنتجات</button>
+      <button class="d-navlink" data-view="customers">👥 الزبائن</button>
+      <button class="d-navlink" data-view="settings">⚙️ إعداد المتجر</button>
+      <a class="d-navlink" href="tool.html">✨ أداة الأوصاف</a>
+      <a class="d-navlink" href="chat.html">🤖 مساعد الذكاء</a>
+    </nav>
+    <button class="d-logout" id="logout">🚪 تسجيل الخروج</button>
+  </aside>
+
+  <!-- Main -->
+  <div class="d-main">
+    <header class="d-topbar">
+      <button class="d-burger" id="burger" aria-label="القائمة">☰</button>
+      <div>
+        <strong id="storeNameTop">متجري</strong>
+        <span class="d-user" id="userEmail"></span>
+      </div>
+    </header>
+
+    <main class="d-content">
+      <!-- نظرة عامة -->
+      <section class="d-view" data-view="overview">
+        <h1>أهلاً <span id="welcomeName"></span> 👋</h1>
+        <p class="d-sub">هاي لوحة تحكّم متجرك — من هون بتدير كل شي.</p>
+        <div class="d-stats">
+          <div class="d-stat"><span class="d-stat-num" id="statProducts">0</span><span>منتج</span></div>
+          <div class="d-stat"><span class="d-stat-num" id="statCustomers">0</span><span>زبون</span></div>
+          <div class="d-stat alt"><span class="d-stat-num" id="statStore">—</span><span>اسم المتجر</span></div>
+        </div>
+        <div class="d-quick">
+          <h3>ابدأ بسرعة</h3>
+          <div class="d-quick-row">
+            <button class="d-btn" data-goto="products">➕ أضف منتج</button>
+            <button class="d-btn d-btn-ghost" data-goto="customers">➕ أضف زبون</button>
+            <a class="d-btn d-btn-ghost" href="tool.html">✨ ولّد وصف منتج</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- المنتجات -->
+      <section class="d-view" data-view="products" hidden>
+        <h1>المنتجات</h1>
+        <p class="d-sub">أضف منتجاتك وادِرها. <a href="tool.html">✨ ولّد وصفاً بالـ AI</a></p>
+        <form class="d-form" id="productForm">
+          <div class="d-row">
+            <div class="d-field"><label>اسم المنتج *</label><input id="pName" required placeholder="مثال: قميص قطن" /></div>
+            <div class="d-field"><label>السعر ($) *</label><input id="pPrice" type="number" min="0" step="0.01" required placeholder="29.99" /></div>
+          </div>
+          <div class="d-row">
+            <div class="d-field"><label>الفئة</label><input id="pCat" placeholder="أزياء، إلكترونيات…" /></div>
+            <div class="d-field"><label>المخزون</label><input id="pStock" type="number" min="0" placeholder="100" /></div>
+          </div>
+          <div class="d-field"><label>الوصف</label><textarea id="pDesc" rows="2" placeholder="وصف مختصر للمنتج…"></textarea></div>
+          <button class="d-btn" type="submit">➕ أضف المنتج</button>
+        </form>
+        <div class="d-grid" id="productList"></div>
+      </section>
+
+      <!-- الزبائن -->
+      <section class="d-view" data-view="customers" hidden>
+        <h1>الزبائن</h1>
+        <p class="d-sub">سجّل زباينك وبياناتهم.</p>
+        <form class="d-form" id="customerForm">
+          <div class="d-row">
+            <div class="d-field"><label>الاسم *</label><input id="cName" required placeholder="اسم الزبون" /></div>
+            <div class="d-field"><label>البريد</label><input id="cEmail" type="email" placeholder="email@example.com" /></div>
+          </div>
+          <div class="d-field"><label>الهاتف</label><input id="cPhone" placeholder="+963…" /></div>
+          <button class="d-btn" type="submit">➕ أضف الزبون</button>
+        </form>
+        <div class="d-table-wrap">
+          <table class="d-table">
+            <thead><tr><th>الاسم</th><th>البريد</th><th>الهاتف</th><th></th></tr></thead>
+            <tbody id="customerList"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- إعداد المتجر -->
+      <section class="d-view" data-view="settings" hidden>
+        <h1>إعداد المتجر</h1>
+        <p class="d-sub">عدّل اسم ووصف متجرك.</p>
+        <form class="d-form" id="storeForm">
+          <div class="d-field"><label>اسم المتجر</label><input id="stName" placeholder="اسم متجرك" /></div>
+          <div class="d-field"><label>وصف المتجر</label><textarea id="stDesc" rows="3" placeholder="عن شو متجرك…"></textarea></div>
+          <button class="d-btn" type="submit">💾 حفظ التغييرات</button>
+          <span class="d-saved" id="stSaved"></span>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="store.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
