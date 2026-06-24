@@ -68,5 +68,37 @@ app.post("/api/generate", async (req, res) => {
   }
 });
 
+// ===== مساعد المتجر (Chatbot) =====
+const CHAT_SYSTEM = `أنت "مساعد Aura"، مساعد ودود وذكي لمتجر إلكتروني.
+- تحكي بالعربية البسيطة وبأسلوب لطيف ومختصر.
+- تساعد الزبائن بأسئلة المنتجات، التوصيل، الأسعار، الخصومات، والإرجاع.
+- إذا ما بتعرف معلومة محددة، اطلب من الزبون التواصل مع الدعم بدل ما تخترع.
+- شجّع الزبون على الشراء بلطف بدون إلحاح.
+
+معلومات المتجر:
+- التوصيل: 2 إلى 5 أيام عمل. مجاني فوق 50$.
+- الإرجاع: خلال 14 يوم، المنتج بحالته الأصلية.
+- كود خصم 10% لأول طلب: AURA10.`;
+
+app.post("/api/chat", async (req, res) => {
+  const { messages } = req.body || {};
+  if (!Array.isArray(messages) || messages.length === 0) {
+    return res.status(400).json({ error: "messages مطلوبة" });
+  }
+  try {
+    const message = await client.messages.create({
+      model: "claude-opus-4-8",
+      max_tokens: 1024,
+      system: CHAT_SYSTEM,
+      messages: messages.map((m) => ({ role: m.role, content: m.content })),
+    });
+    const reply = message.content.find((b) => b.type === "text")?.text ?? "…";
+    res.json({ reply });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "فشل الرد: " + err.message });
+  }
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`✅ Aura AI backend على http://localhost:${PORT}`));
